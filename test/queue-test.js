@@ -77,7 +77,7 @@ describe('Queue', function () {
         done();
       });
 
-      queue.bclient.stream.end();
+      queue.bclient.stream.end(true);
       queue.bclient.emit('error', new Error('ECONNRESET'));
 
       queue.createJob({foo: 'bar'}).save();
